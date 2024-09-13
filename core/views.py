@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from .forms import UploadFileForm
-from django.http import JsonResponse
-import pandas as pd
 import csv
+
+import pandas as pd
+from django.http import JsonResponse
+from django.shortcuts import render
+
+from .forms import UploadFileForm
 
 
 def file_upload_view(request):
@@ -18,7 +20,9 @@ def file_upload_view(request):
             elif file.name.endswith('.xlsx'):
                 df = pd.read_excel(file)
             else:
-                return JsonResponse({'message': 'Unsupported file type.'}, status=400)
+                return JsonResponse(
+                    {'message': 'Unsupported file type.'}, status=400
+                )
             data = df.to_dict(orient='records')
             return JsonResponse({'data': data})
     else:
