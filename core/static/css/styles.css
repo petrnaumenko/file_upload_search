@@ -1,0 +1,11 @@
+#progress-bar {
+    height: 20px;
+}
+.progress-bar {
+    position: relative;
+    top: -2px;
+}
+table.dataTable thead th {
+    border-top: 1px solid #111;
+    background-color: #007bff7d;
+}
