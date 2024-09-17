@@ -78,7 +78,10 @@ $(function() {
             success: function(response) {
                 populateDataTable(response.data);
             },
-            error: function() {
+            error: function(xhr, status, error) {
+                console.log("Status: " + status);
+                console.log("Error: " + error);
+                console.log("Response Text: " + xhr.responseText);
                 alert('Error uploading file.');
             }
         });
